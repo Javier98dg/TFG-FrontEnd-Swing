@@ -26,7 +26,7 @@ public class TercerosController {
     public void initController() {
         view = new TercerosFrameGUI();
         
-        //Cargar elementos
+        //Cargar elementoss
         setBotonEnabled(false);
         loadTable2(new SicatpersoEntity[0]);
         view.getJTableElemento().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
