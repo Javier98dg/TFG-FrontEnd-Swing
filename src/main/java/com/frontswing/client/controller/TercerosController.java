@@ -86,7 +86,6 @@ public class TercerosController {
         }
     }
     
-    //
     private void resetFields(){
         view.getJTextFieldSearch().setText("");
     }
