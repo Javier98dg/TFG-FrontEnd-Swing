@@ -37,8 +37,8 @@ public class SicatpersoEntity {
     @Column(name = "DNOMPE", length = 20)
     private String nombre;
 
-//    @Column(name = "DDIRPE", length = 60)
-//    private String direccion;
+    @Column(name = "DDIRPE", length = 60)
+    private String direccion;
 
     @Column(name = "CPROVI")
     private Integer codProvincia;
@@ -70,8 +70,8 @@ public class SicatpersoEntity {
     @Column(name = "FECACT", nullable = false)
     private LocalDateTime fechaActualizacion;
 
-    @Column(name = "FECBAJ")
-    private LocalDateTime fechaBaja;
+//    @Column(name = "FECBAJ")
+//    private LocalDateTime fechaBaja;
 
 //    @Column(name = "NMOVIL")
 //    private Integer telefonoMov;
@@ -82,21 +82,23 @@ public class SicatpersoEntity {
 //    @Column(name = "CDSEXO")
 //    private String codSexo;
 
-//    @Column(name = "CUSERD", length = 10)
-//    private String usuario;
+    @Column(name = "CUSERD", length = 10)
+    private String usuario;
 
 //    @Column(name = "CPROAU")
 //    private Integer codAutoria;
 
-    public SicatpersoEntity(String id,String primerApe,String segundoApe,String nombre,Integer codProvincia,Integer codMunicipio,Integer codPostal,Integer telefono,String correoElec){
+    public SicatpersoEntity(String id, String primerApe, String segundoApe, String nombre, String direccion, Integer codProvincia, Integer codMunicipio, Integer codPostal, Integer telefono, String correoElec, String usuario) {
         this.id = id;
         this.primerApe = primerApe;
         this.segundoApe = segundoApe;
         this.nombre = nombre;
+        this.direccion = direccion;
         this.codProvincia = codProvincia;
         this.codMunicipio = codMunicipio;
         this.codPostal = codPostal;
         this.telefono = telefono;
         this.correoElec = correoElec;
-    }   
+        this.usuario = usuario;
+    } 
 }

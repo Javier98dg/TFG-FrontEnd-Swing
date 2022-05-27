@@ -101,6 +101,8 @@ public class TercerosController {
         tercerosItemDialog.getJTextFieldNombre().setText("");
         tercerosItemDialog.getJTextFieldProvin().setText("");
         tercerosItemDialog.getJTextFieldTelef().setText("");
+        tercerosItemDialog.getJTextFieldUser().setText("");
+        tercerosItemDialog.getJTextFieldDirec().setText("");
     }
     
     //Si se ha seleccionado una fila de la tabla
@@ -138,6 +140,7 @@ public class TercerosController {
         try {
             crear=true;
             tercerosItemDialog.getJTextFieldNIF().setEditable(true);
+            tercerosItemDialog.getJTextFieldUser().setEditable(true);
             tercerosItemDialog.setVisible(true);  
             
         } catch (Exception ex) {
@@ -150,6 +153,7 @@ public class TercerosController {
         try {
             crear=false;
             tercerosItemDialog.getJTextFieldNIF().setEditable(false);
+            tercerosItemDialog.getJTextFieldUser().setEditable(false);
             
             int selectedRow = view.getJTableElemento().getSelectedRow();
             if (selectedRow == -1) return;
@@ -157,8 +161,9 @@ public class TercerosController {
             SicatpersoEntity elemento = (SicatpersoEntity) view.getJTableElemento().getValueAt(selectedRow, -1);
 
             String NIF = elemento.getId();
+            String Usuario = elemento.getUsuario();
             String PApellido = elemento.getPrimerApe();
-            String Nombre,SApellido,Correo;
+            String Nombre,SApellido,Correo,Direccion;
             Integer Telefono,Municipio,CP,Provincia;
             String TelefonoAux,MunicipioAux,CPAux,ProvinciaAux;
             
@@ -194,13 +199,15 @@ public class TercerosController {
                 Provincia = elemento.getCodProvincia();
                 tercerosItemDialog.getJTextFieldProvin().setText(Integer.toString(Provincia));
             }
- 
+
             if(elemento.getNombre() == null) Nombre = "";
             else Nombre = elemento.getNombre();
             if(elemento.getSegundoApe() == null) SApellido = "";
             else SApellido = elemento.getSegundoApe();
             if(elemento.getCorreoElec() == null) Correo = "";
             else Correo = elemento.getCorreoElec();
+            if(elemento.getDireccion()== null) Direccion = "";
+            else Direccion = elemento.getDireccion();
             
             LocalDateTime fecAc = elemento.getFechaActualizacion();
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -212,6 +219,8 @@ public class TercerosController {
             tercerosItemDialog.getJTextFieldApe2().setText(SApellido);
             tercerosItemDialog.getJTextFieldCorreo().setText(Correo);
             tercerosItemDialog.getJTextFieldFAct().setText(FechaAct);
+            tercerosItemDialog.getJTextFieldDirec().setText(Direccion);
+            tercerosItemDialog.getJTextFieldUser().setText(Usuario);
             
             tercerosItemDialog.setVisible(true);
         }catch (Exception ex){
@@ -285,7 +294,7 @@ public class TercerosController {
             
             String NIF = tercerosItemDialog.getJTextFieldNIF().getText();
             String PApellido = tercerosItemDialog.getJTextFieldApe1().getText();
-            String Nombre,SApellido,Correo;
+            String Nombre,SApellido,Correo,Direccion,Usuario;
             Integer Telefono,Municipio,CP,Provincia;
             
             if (tercerosItemDialog.getJTextFieldNombre().getText().isEmpty()) Nombre = null;
@@ -302,8 +311,12 @@ public class TercerosController {
             else CP = Integer.parseInt(tercerosItemDialog.getJTextFieldCPos().getText());
             if (tercerosItemDialog.getJTextFieldProvin().getText().isEmpty()) Provincia = null;
             else Provincia = Integer.parseInt(tercerosItemDialog.getJTextFieldProvin().getText());
+            if (tercerosItemDialog.getJTextFieldUser().getText().isEmpty()) Usuario = null;
+            else Usuario = tercerosItemDialog.getJTextFieldUser().getText();
+            if (tercerosItemDialog.getJTextFieldDirec().getText().isEmpty()) Direccion = null;
+            else Direccion = tercerosItemDialog.getJTextFieldDirec().getText();
             
-            SicatpersoEntity sicatperso = new SicatpersoEntity(NIF, PApellido, SApellido, Nombre, Provincia, Municipio, CP, Telefono, Correo);
+            SicatpersoEntity sicatperso = new SicatpersoEntity(NIF, PApellido, SApellido, Nombre, Direccion, Provincia, Municipio, CP, Telefono, Correo, Usuario);
             return sicatperso;
             
         } catch (NumberFormatException ex) {

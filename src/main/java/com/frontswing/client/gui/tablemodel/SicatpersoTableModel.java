@@ -1,6 +1,8 @@
 package com.frontswing.client.gui.tablemodel;
 
 import com.frontswing.client.entity.SicatpersoEntity;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import lombok.AllArgsConstructor;
@@ -15,8 +17,8 @@ import lombok.Data;
 public class SicatpersoTableModel  extends AbstractTableModel {
 
     private List<SicatpersoEntity> rows;
-    private final String[] columnNames = {"NIF","Fecha Actualización","Fecha Baja","Nombre",
-        "Primer Apellido","Segundo Apellido","Correo Electrónico","Teléfono","Municipio","Código Postal","Provincia"};
+    private final String[] columnNames = {"NIF","Fecha Actualización","Nombre",
+        "Primer Apellido","Segundo Apellido","Correo Electrónico","Teléfono","Dirección","Municipio","Código Postal","Provincia","Usuario"};
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
@@ -28,25 +30,30 @@ public class SicatpersoTableModel  extends AbstractTableModel {
             case 0:
                 return row.getId();
             case 1:
-                return row.getFechaActualizacion();
+                LocalDateTime fecAc = row.getFechaActualizacion();
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+                String FechaAct = fecAc.format(dateTimeFormatter);
+                return FechaAct;
             case 2:
-                return row.getFechaBaja();
-            case 3:
                 return row.getNombre();
-            case 4:
+            case 3:
                 return row.getPrimerApe();
-            case 5:
+            case 4:
                 return row.getSegundoApe();
-            case 6:
+            case 5:
                 return row.getCorreoElec();
-            case 7:
+            case 6:
                 return row.getTelefono();
+            case 7:
+                return row.getDireccion();
             case 8:
                 return row.getCodMunicipio();
             case 9:
                 return row.getCodPostal();
             case 10:
                 return row.getCodProvincia();
+            case 11:
+                return row.getUsuario();
             case -1:
                 return row;
         }
@@ -65,30 +72,34 @@ public class SicatpersoTableModel  extends AbstractTableModel {
 //            case 2:
 //                row.setFechaBaja(LocalDateTime.MAX);
 //                break;
-            case 3:
+            case 1:
                 row.setNombre((String) value);
                 break;
-            case 4:
+            case 2:
                 row.setPrimerApe((String) value);
                 break;
-            case 5:
+            case 3:
                 row.setSegundoApe((String) value);
                 break;
-            case 6:
+            case 4:
                 row.setCorreoElec((String) value);
                 break;
-            case 7:
+            case 5:
                 row.setTelefono((Integer) value);
                 break;
-            case 8:
+            case 6:
                 row.setCodMunicipio((Integer) value);
                 break;
-            case 9:
+            case 7:
+                row.setDireccion((String) value);
+            case 8:
                 row.setCodPostal((Integer) value);
                 break;
-            case 10:
+            case 9:
                 row.setCodProvincia((Integer) value);
                 break;
+            case 10:
+                row.setUsuario((String) value);
             case -1:
                 row=(SicatpersoEntity)value;
                 break;
