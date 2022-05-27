@@ -54,18 +54,6 @@ public class TercerosRC {
         return res.block();
     }
     
-    public static RestResponsePage getAllPageable(Integer pageNo,Integer pageSize,String sortBy,String sortOrder){
-        Flux<RestResponsePage> res ;
-        
-        res=webClient.get()
-                //.uri(url)
-                .uri(url+"/findallpageable/"+pageNo+"/"+pageSize+"/"+sortBy+"/"+sortOrder) 
-                .retrieve()
-                .bodyToFlux(RestResponsePage.class);
-        
-        return res.blockFirst();
-    }
-    
     public static void create(SicatpersoEntity sicatperso) throws Exception{
         webClient.post()
                 .uri(url)

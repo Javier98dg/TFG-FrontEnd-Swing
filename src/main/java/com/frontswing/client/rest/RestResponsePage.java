@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 
 /**
  *
- * @author Labian
+ * @author jjdg46
  */
 public class RestResponsePage<T> extends PageImpl<T> {
 

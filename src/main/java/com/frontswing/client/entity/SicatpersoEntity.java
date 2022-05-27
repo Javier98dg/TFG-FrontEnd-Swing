@@ -3,22 +3,17 @@ package com.frontswing.client.entity;
 import lombok.ToString;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.PathVariable;
 
-@Entity
-@Table(name = "SICATPERSO")
+/**
+ *
+ * @author jjdg46
+ */
+
 @ToString
 @Data
 @NoArgsConstructor

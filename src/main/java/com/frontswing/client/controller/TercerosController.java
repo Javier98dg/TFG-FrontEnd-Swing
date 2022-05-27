@@ -28,7 +28,9 @@ public class TercerosController {
         
         //Cargar elementos
         setBotonEnabled(false);
+        //SicatpersoEntity[] sicatperso = TercerosRC.getAllPageable(1,10);
         loadTable2(new SicatpersoEntity[0]);
+        
         view.getJTableElemento().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         //Muestra todos los datos en la tabla
@@ -69,9 +71,10 @@ public class TercerosController {
         
         if(termSearched.isEmpty()){
             setBotonEnabled(false);
-            loadTable2(new SicatpersoEntity[0]);
+            //SicatpersoEntity[] sicatperso = TercerosRC.getAllPageable(1,3);
             SicatpersoEntity[] sicatperso = TercerosRC.getAll();
-            //Page<SicatpersoEntity> sicatperso = TercerosRC.getAll();
+            loadTable2( new SicatpersoEntity[0] );
+
             loadTable2(sicatperso);
         }
         else{
@@ -115,11 +118,11 @@ public class TercerosController {
             view.getJTextFieldSearch().setText("");
         }
     }
-    //
-    private void loadTable2(/*Page<SicatpersoEntity> rows*/SicatpersoEntity[] rows){
+    //TODO
+    private void loadTable2(SicatpersoEntity[] rows){
         SicatpersoTableModel tableModel = new SicatpersoTableModel(Arrays.asList(rows));
         view.getJTableElemento().setModel(tableModel);
-        
+
         if(rows.length>0){
             view.getJTableElemento().setEnabled(true);
         }else{
@@ -287,8 +290,9 @@ public class TercerosController {
     private SicatpersoEntity createObjectFromTextfields(){
         try {
             if (tercerosItemDialog.getJTextFieldNIF().getText().isEmpty()
-                    || tercerosItemDialog.getJTextFieldApe1().getText().isEmpty()) {
-                JOptionPane.showMessageDialog(tercerosItemDialog, "Rellene NIF y Primer Apellido");
+                    || tercerosItemDialog.getJTextFieldApe1().getText().isEmpty()
+                    || tercerosItemDialog.getJTextFieldUser().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(tercerosItemDialog, "Rellene NIF, Primer Apellido y Usuario");
                 return null;
             }
             
