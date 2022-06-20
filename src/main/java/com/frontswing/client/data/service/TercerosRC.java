@@ -1,7 +1,7 @@
-package com.frontswing.client.rest;
+package com.frontswing.client.data.service;
 
-import com.frontswing.client.controller.WebClientBase;
-import com.frontswing.client.entity.SicatpersoEntity;
+import com.frontswing.client.data.webclientbase.WebClientBase;
+import com.frontswing.client.data.entity.SicatpersoEntity;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;

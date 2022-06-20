@@ -1,4 +1,4 @@
-package com.frontswing.client.gui;
+package com.frontswing.client.views.terceros;
 
 import lombok.Data;
 
@@ -34,7 +34,6 @@ public class TercerosFrameGUI extends javax.swing.JFrame {
         jTextFieldSearch = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1520, 800));
 
         jTableElemento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

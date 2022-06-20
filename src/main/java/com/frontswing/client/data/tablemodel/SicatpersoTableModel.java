@@ -1,6 +1,6 @@
-package com.frontswing.client.gui.tablemodel;
+package com.frontswing.client.data.tablemodel;
 
-import com.frontswing.client.entity.SicatpersoEntity;
+import com.frontswing.client.data.entity.SicatpersoEntity;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;

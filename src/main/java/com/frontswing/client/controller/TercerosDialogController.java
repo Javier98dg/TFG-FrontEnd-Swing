@@ -1,8 +1,8 @@
 package com.frontswing.client.controller;
 
-import com.frontswing.client.entity.SicatpersoEntity;
-import com.frontswing.client.gui.TercerosItemDialog;
-import com.frontswing.client.rest.TercerosRC;
+import com.frontswing.client.data.entity.SicatpersoEntity;
+import com.frontswing.client.views.terceros.TercerosItemDialog;
+import com.frontswing.client.data.service.TercerosRC;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;

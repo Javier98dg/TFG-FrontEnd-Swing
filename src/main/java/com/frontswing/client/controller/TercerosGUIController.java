@@ -1,9 +1,9 @@
 package com.frontswing.client.controller;
 
-import com.frontswing.client.entity.SicatpersoEntity;
-import com.frontswing.client.gui.TercerosFrameGUI;
-import com.frontswing.client.gui.tablemodel.SicatpersoTableModel;
-import com.frontswing.client.rest.TercerosRC;
+import com.frontswing.client.data.entity.SicatpersoEntity;
+import com.frontswing.client.views.terceros.TercerosFrameGUI;
+import com.frontswing.client.data.tablemodel.SicatpersoTableModel;
+import com.frontswing.client.data.service.TercerosRC;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;

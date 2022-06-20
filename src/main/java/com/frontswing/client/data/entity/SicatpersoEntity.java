@@ -1,4 +1,4 @@
-package com.frontswing.client.entity;
+package com.frontswing.client.data.entity;
 
 import lombok.ToString;
 

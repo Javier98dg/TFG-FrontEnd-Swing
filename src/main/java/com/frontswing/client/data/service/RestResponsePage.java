@@ -1,4 +1,4 @@
-package com.frontswing.client.rest;
+package com.frontswing.client.data.service;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
