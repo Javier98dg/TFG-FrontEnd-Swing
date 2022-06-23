@@ -79,7 +79,7 @@ public class TercerosGUIController {
     }
 
     //Si se ha seleccionado una fila de la tabla
-    //Desbloquea boton Borrar y Actualizar. 
+    //Desbloquea boton Borrar y Actualizar
     private void setBotonEnabled(boolean enabled) {
         guiView.getJButtonDel().setEnabled(enabled);
         guiView.getJButtonUpdate().setEnabled(enabled);
